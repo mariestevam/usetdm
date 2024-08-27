@@ -14,8 +14,8 @@
   var defaults = {
       topSpacing: 0,
       bottomSpacing: 0,
-      className: 'is-sticky',
-      wrapperClassName: 'sticky-wrapper',
+      className: 'is-stickyyy',
+      wrapperClassName: 'is-sticky',
       center: false,
       getWidthFrom: '',
       responsiveWidth: false
@@ -88,7 +88,7 @@
           var stickyId = stickyElement.attr('id');
           var wrapperId = stickyId ? stickyId + '-' + defaults.wrapperClassName : defaults.wrapperClassName 
           var wrapper = $('<div></div>')
-            .attr('id', stickyId + '-sticky-wrapper')
+            .attr('id', stickyId + '-sticky-wrapper sticky-wrapper is-sticky')
             .addClass(o.wrapperClassName);
           stickyElement.wrapAll(wrapper);
 
