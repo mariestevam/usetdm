@@ -59,94 +59,11 @@ public class Pessoa {
     private String senha;
     private Boolean sistema;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "pessoa_id")
-    private List<Telefone> telefones = new ArrayList<Telefone>();
+    private String telefone;
 
 
 
     //@JsonManagedReference
-
-
-
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public void setCpf(String cpf) {
-        this.cpf = cpf;
-    }
-
-    public String getNome() {
-        return nome;
-    }
-
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-
-    public Sexo getSexo() {
-        return sexo;
-    }
-
-    public void setSexo(Sexo sexo) {
-        this.sexo = sexo;
-    }
-
-
-    public Date getDataNascimento() {
-        return dataNascimento;
-    }
-
-    public void setDataNascimento(Date dataNascimento) {
-        this.dataNascimento = dataNascimento;
-    }
-
-    public String getSenha() {
-        return senha;
-    }
-
-    public void setSenha(String senha) {
-        this.senha = senha;
-    }
-
-
-    public List<Telefone> getTelefones() {
-        return telefones;
-    }
-
-    public void setTelefones(List<Telefone> telefones) {
-        this.telefones = telefones;
-    }
-
-    public void addTelefone(Telefone telefone){
-        this.telefones.add(telefone);
-    }
-
-    public void removeTelefone(Telefone telefone){
-        this.telefones.remove(telefone);
-    }
-
-
 
 
 
