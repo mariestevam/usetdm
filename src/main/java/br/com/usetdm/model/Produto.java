@@ -1,33 +1,16 @@
 package br.com.usetdm.model;
 
 import br.com.usetdm.enums.Tipoproduto;
-import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-
-
-
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-
 
 @AllArgsConstructor
 @NoArgsConstructor
+@Data
 @Entity
-@JsonIdentityInfo(
-        generator = ObjectIdGenerators.PropertyGenerator.class,
-        property = "id"
-)
-@Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(
-        name = "tipoProduto",
-        length = 1,
-        discriminatorType = DiscriminatorType.STRING
-)
 public class Produto {
 
     @Id
@@ -45,16 +28,12 @@ public class Produto {
     private Double valor;
 
     @NotEmpty(message = "A descrição deve ser informado")
-    private String descrição;
+    private String descricao;
 
     @NotEmpty(message = "Coloque uma imagem do produto")
     private String imagem;
 
     private Tipoproduto tipoproduto;
-
-
-
-
 
     //@JsonManagedReference
 }

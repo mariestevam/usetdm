@@ -72,15 +72,15 @@
 											</tr>
 											</tfoot>
 											<tbody>
-											<tr th:if="${produto.empty}">
+											<tr th:if="${produtos.empty}">
 												<td colspan="5">Nenhum registro encontrado</td>
 											</tr>
 
-											<tr th:each="produto : ${produto}">
+											<tr th:each="produto : ${produtos}">
 												<td style="width: 7%"><span th:text="${produto.id}">ID</span></td>
 												<td><span th:text="${produto.nome}">Nome</span></td>
-												<td><span th:text="${produto.telefone}">Telefone</span></td>
-												<td><span th:text="${produto.email}">Email</span></td>
+												<td><span th:text="${produto.descricao}">Descrição</span></td>
+												<td><span th:text="${produto.valor}">Valor</span></td>
 												<td class="text-center" style="width: 7%">
 													<a th:href="@{/produto/form-alterar/{id}(id=${produto.id})}"
 													   class="edit" data-toggle="modal">

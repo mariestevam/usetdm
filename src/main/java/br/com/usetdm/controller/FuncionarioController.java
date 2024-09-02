@@ -30,10 +30,10 @@ public class FuncionarioController {
     public String excluir(@PathVariable("id") Long id, RedirectAttributes redirectAttributes) {
 
         // Busca o responsável no banco de dados pelo id
-        Funcionario responsavel = funcionarioRepository.findById(id).get();
+        Funcionario funcionario = funcionarioRepository.findById(id).get();
 
         // Remove o responsável do banco de dados
-        funcionarioRepository.delete(responsavel);
+        funcionarioRepository.delete(funcionario);
 
         // Adiciona uma mensagem que será exibida no template
         redirectAttributes.addFlashAttribute("mensagem", "Funcionario excluído com sucesso!");
@@ -48,8 +48,8 @@ public class FuncionarioController {
         return "funcionario/form-inserir";
     }
     // Método para salvar o jogador
-    @PostMapping("/inserir")
-    public String inserir(
+    @PostMapping("/salvar")
+    public String salvar(
             @Valid Funcionario funcionario,
             BindingResult result,
             RedirectAttributes redirectAttributes){
@@ -70,7 +70,7 @@ public class FuncionarioController {
 
         Funcionario funcionario = funcionarioRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Funcionario inválido: " + id));
 
-        model.addAttribute("Funcionario", funcionario);
+        model.addAttribute("funcionario", funcionario);
         return "funcionario/form-alterar";
     }
 
