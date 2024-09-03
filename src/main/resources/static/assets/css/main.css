@@ -5787,5 +5787,12 @@ label {
   .footer-text a,
   .footer-text i {
     color: #ffba00; }
+  .dataTables_filter{
+    float: right;
+  }
+
+  .dataTables_paginate{
+    float: right;
+  }
 
 /*# sourceMappingURL=main.css.map */

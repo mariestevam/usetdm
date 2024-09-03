@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form action="#" th:action="@{/produto/inserir}" th:object="${produto}" method="post">
+                    <form action="#" th:action="@{/produto/salvar}" th:object="${produto}" method="post">
                         <div class="card-header">
                             <div class="card-title">Dados do Produto</div>
                         </div>
@@ -39,25 +39,25 @@
 
 
                                     <div class="form-group">
-                                        <label for="nome">Nome</label>
+                                        <label for="nome">Código</label>
                                         <input
                                                 type="text"
                                                 class="form-control"
                                                 id="nome"
                                                 placeholder="Informe o Nome do Produto"
-                                                th:field="*{nome}"
+                                                th:field="*{codigo}"
                                         />
 
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="cpf">CPF</label>
+                                        <label for="cpf">Nome</label>
                                         <input
                                                 type="text"
                                                 class="form-control"
                                                 id="cpf"
                                                 placeholder="Informe o CPF do produto"
-                                                th:field="*{cpf}"
+                                                th:field="*{nome}"
                                         />
 
                                     </div>
@@ -66,36 +66,20 @@
 
 
                                     <div class="form-group col-md-3">
-                                        <label for="dataNascimento">Data de Nascimento</label>
+                                        <label for="dataNascimento">Valor</label>
                                         <input
                                                 type="date"
                                                 class="form-control"
                                                 id="dataNascimento"
                                                 placeholder="Informe a Data de Nascimento"
-                                                th:field="*{dataNascimento}"
+                                                th:field="*{valor}"
                                         />
                                     </div>
-                                    <div class="form-group col-md-3">
-                                        <label for="genero">Gênero</label>
-                                        <select
-                                                class="form-select"
-                                                id="genero"
-                                                th:field="*{sexo}"
-                                        >
-                                            <option value="">Selecione</option>
-                                            <option
-                                                    th:each="genero : ${T(br.com.usetdm.enums.Sexo).values()}"
-                                                    th:value="${genero}"
-                                                    th:text="${genero.descricao}"
-                                            >
 
-                                            </option>
-                                        </select>
-                                    </div>
                                     <div class="form-group col-md-3">
                                         <label
                                                 for="telefone"
-                                        >Telefone</label
+                                        >Descrição</label
                                         >
                                         <div class="col-md-12 p-0">
                                             <input
@@ -103,20 +87,39 @@
                                                     class="form-control input-full"
                                                     id="telefone"
                                                     placeholder="Informe o Telefone"
-                                                    th:field="*{telefone}"
+                                                    th:field="*{descricao}"
                                             />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">Email</label>
+                                        <label for="email">Imagem</label>
                                         <input
-                                                type="email"
+                                                type="text"
                                                 class="form-control"
                                                 id="email"
                                                 placeholder="Informe o Email do Jogador"
-                                                th:field="*{email}"
+                                                th:field="*{imagem}"
                                         />
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="tipoproduto">tipo de produto</label>
+                                        <select
+                                                class="form-select"
+                                                id="tipoproduto"
+                                                th:field="*{tipoproduto}"
+                                        >
+                                            <option value="">Selecione</option>
+                                            <option
+                                                    th:each="tipoProduro : ${T(br.com.usetdm.enums.Tipoproduto).values()}"
+                                                    th:value="${tipoProduro}"
+                                                    th:text="${tipoProduro.descricao}"
+                                            >
+
+                                            </option>
+                                        </select>
                                     </div>
                                 </div>
                             </div>

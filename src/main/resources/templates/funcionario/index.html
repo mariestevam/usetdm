@@ -82,8 +82,7 @@
 												<td><span th:text="${funcionario.telefone}">Telefone</span></td>
 												<td><span th:text="${funcionario.email}">Email</span></td>
 												<td class="text-center" style="width: 7%">
-													<a th:href="@{/funcionario/form-alterar/{id}(id=${funcionario.id})}"
-													   class="edit" data-toggle="modal">
+													<a th:href="@{/funcionario/form-alterar/{id}(id=${funcionario.id})}">
 														<i class="fa fa-edit" data-toggle="tooltip" title="Alterar"></i>
 													</a>
 													<a th:href="@{/funcionario/excluir/{id}(id=${funcionario.id})}"
@@ -120,8 +119,8 @@
 	<!-- start footer Area -->
 	<div th:replace="~{/fragments/footer.html :: footer}"></div>
 	<!-- End footer Area -->
-
-	<div th:replace="~{/fragments/scripts.html :: scripts}"></div>
+	<script src="/assets/js/vendor/jquery-2.2.4.min.js" ></script>
+	<script src="/assets/js/vendor/datatables.min.js"></script>
 	<div th:replace="~{/fragments/datatables.html :: datatables}"></div>
 </body>
 
