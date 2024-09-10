@@ -50,6 +50,22 @@ public class ProdutoController {
         return "produto/form-inserir";
     }
 
+    @PostMapping("/salvar")
+    public String salvar(
+            @Valid Produto produto,
+            BindingResult result,
+            RedirectAttributes redirectAttributes){
+
+        // Verifica se há erros de validação
+        if(result.hasErrors()){
+            return "produto/form-inserir";
+        }
+
+        produtoRepository.save(produto);
+        redirectAttributes.addFlashAttribute("mensagem", "Produto salvo com sucesso!");
+        return "redirect:/produto";
+    }
+
     // Método para salvar o jogador
     @PostMapping("/inserir")
     public String inserir(
