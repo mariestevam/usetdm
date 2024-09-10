@@ -1,6 +1,7 @@
 package br.com.usetdm.model;
 
 
+import br.com.usetdm.enums.Funcao;
 import br.com.usetdm.enums.Sexo;
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
 
@@ -52,6 +53,7 @@ public class Pessoa {
     @Email(message = "O e-mail informado é inválido")
     private String email;
     private Sexo sexo;
+    private Funcao funcao;
 
     @Basic
     @Temporal(TemporalType.DATE)
