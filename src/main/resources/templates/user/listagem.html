@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="pt" class="no-js" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<!-- Site Title -->
+	<title>tdm</title>
+
+	<div th:replace="~{/fragments/heads.html :: heads}"></div>
+
+</head>
+
+<body>
+
+	<!-- Start Header Area -->
+	<div th:replace="~{/fragments/header.html :: header}"></div>
+	<!-- End Header Area -->
+
+	<!-- Espaçamento do Formulário -->
+	<div class="container" style="margin-top: 100px;"></div>
+
+
+
+
+
+	<div class="wrapper">
+		<div class="main-panel">
+			<div class="main-header">
+			</div>
+
+			<div class="container">
+				<div class="page-inner">
+					<div class="page-header">
+						<h3 class="fw-bold mb-3">Cadastro de Usuario</h3>
+					</div>
+					<div class="row">
+						<div class="alert alert-success alert-dismissible fade show" th:if="${mensagem}">
+							<button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+							<span th:text="${mensagem}"></span>
+						</div>
+						<div class="col-md-12">
+							<div class="card">
+								<div class="card-header">
+									<span class="card-title">Listagem de Funcionários</span>
+									<a
+											th:href="@{/user/form-inserir}"
+											class="btn btn-primary"
+											style="float: right"
+									> Novo Funcionário</a>
+								</div>
+								<div class="card-body">
+									<div class="table-responsive">
+										<table
+												id="basic-datatables"
+												class="display table table-striped table-hover"
+										>
+											<thead>
+											<tr>
+												<th style="width: 7%">ID</th>
+												<th>Nome</th>
+												<th>Telefone</th>
+												<th>Email</th>
+												<th class="text-center" style="width: 7%">Ações</th>
+											</tr>
+											</thead>
+											<tfoot>
+											<tr>
+												<th style="width: 7%">ID</th>
+												<th>Nome</th>
+												<th>Telefone</th>
+												<th>Email</th>
+												<th class="text-center" style="width: 7%">Ações</th>
+											</tr>
+											</tfoot>
+											<tbody>
+											<tr th:if="${user.empty}">
+												<td colspan="5">Nenhum registro encontrado</td>
+											</tr>
+
+											<tr th:each="user : ${users}">
+												<td style="width: 7%"><span th:text="${user.id}">ID</span></td>
+												<td><span th:text="${user.nome}">Nome</span></td>
+												<td><span th:text="${user.telefone}">Telefone</span></td>
+												<td><span th:text="${user.email}">Email</span></td>
+												<td><span th:text="${user.funcao}">Função</span></td>
+
+												<td class="text-center" style="width: 7%">
+													<a th:href="@{/user/form-alterar/{id}(id=${user.id})}">
+														<i class="fa fa-edit" data-toggle="tooltip" title="Alterar"></i>
+													</a>
+													<a th:href="@{/user/excluir/{id}(id=${user.id})}"
+													   th:data-confirm-delete="|Você gostaria de apagar ${user.nome}?|"
+													   onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
+
+													   id="alertDelete"
+													   class="delete">
+														<i class="fa fa-times" style="color: red; margin-left: 10px;"
+														   data-toggle="tooltip" title="Excluir"></i>
+													</a>
+												</td>
+											</tr>
+											</tbody>
+										</table>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Espaçamento do Formulário -->
+	<div class="container" style="margin-top: 100px;"></div>
+
+
+
+
+
+
+
+	<!-- start footer Area -->
+	<div th:replace="~{/fragments/footer.html :: footer}"></div>
+	<!-- End footer Area -->
+	<script src="/assets/js/vendor/jquery-2.2.4.min.js" ></script>
+	<script src="/assets/js/vendor/datatables.min.js"></script>
+	<div th:replace="~{/fragments/datatables.html :: datatables}"></div>
+</body>
+
+</html>
