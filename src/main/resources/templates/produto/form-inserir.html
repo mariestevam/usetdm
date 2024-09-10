@@ -39,24 +39,24 @@
 
 
                                     <div class="form-group">
-                                        <label for="nome">Código</label>
+                                        <label for="codigo">Código</label>
                                         <input
                                                 type="text"
                                                 class="form-control"
-                                                id="nome"
-                                                placeholder="Informe o Nome do Produto"
+                                                id="codigo"
+                                                placeholder="Informe o Código do Produto"
                                                 th:field="*{codigo}"
                                         />
 
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="cpf">Nome</label>
+                                        <label for="nome">Nome</label>
                                         <input
                                                 type="text"
                                                 class="form-control"
-                                                id="cpf"
-                                                placeholder="Informe o CPF do produto"
+                                                id="nome"
+                                                placeholder="Informe o Nome do produto"
                                                 th:field="*{nome}"
                                         />
 
@@ -66,39 +66,39 @@
 
 
                                     <div class="form-group col-md-3">
-                                        <label for="dataNascimento">Valor</label>
+                                        <label for="valor">Valor</label>
                                         <input
-                                                type="date"
+                                                type="value"
                                                 class="form-control"
-                                                id="dataNascimento"
-                                                placeholder="Informe a Data de Nascimento"
+                                                id="valor"
+                                                placeholder="Informe o Valor"
                                                 th:field="*{valor}"
                                         />
                                     </div>
 
                                     <div class="form-group col-md-3">
                                         <label
-                                                for="telefone"
+                                                for="descricao"
                                         >Descrição</label
                                         >
                                         <div class="col-md-12 p-0">
                                             <input
                                                     type="text"
                                                     class="form-control input-full"
-                                                    id="telefone"
-                                                    placeholder="Informe o Telefone"
+                                                    id="descricao"
+                                                    placeholder="Informe a Descrição"
                                                     th:field="*{descricao}"
                                             />
                                         </div>
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="email">Imagem</label>
+                                        <label for="imagem">Imagem</label>
                                         <input
                                                 type="text"
                                                 class="form-control"
-                                                id="email"
-                                                placeholder="Informe o Email do Jogador"
+                                                id="imagem"
+                                                placeholder="Informe a imagem do produto"
                                                 th:field="*{imagem}"
                                         />
                                     </div>
@@ -113,9 +113,9 @@
                                         >
                                             <option value="">Selecione</option>
                                             <option
-                                                    th:each="tipoProduro : ${T(br.com.usetdm.enums.Tipoproduto).values()}"
-                                                    th:value="${tipoProduro}"
-                                                    th:text="${tipoProduro.descricao}"
+                                                    th:each="tipoProduto : ${T(br.com.usetdm.enums.Tipoproduto).values()}"
+                                                    th:value="${tipoProduto}"
+                                                    th:text="${tipoProduto.descricao}"
                                             >
 
                                             </option>
