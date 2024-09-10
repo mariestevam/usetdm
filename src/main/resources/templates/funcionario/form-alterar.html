@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form action="#" th:action="@{/funcionario/salvar}" th:object="${funcionario}" method="post">
+                    <form action="#" th:action="@{/funcionario/alterar}" th:object="${funcionario}" method="post">
                         <div class="card-header">
                             <div class="card-title">Dados do Funcionário</div>
                         </div>
@@ -60,6 +60,23 @@
                                                 th:field="*{cpf}"
                                         />
 
+                                    </div>
+                                    <div class="form-group col-md-3">
+                                        <label for="genero">Funcionario</label>
+                                        <select
+                                                class="form-select"
+                                                id="funcao"
+                                                th:field="*{funcao}"
+                                        >
+                                            <option value="">Selecione</option>
+                                            <option
+                                                    th:each="funcao : ${T(br.com.usetdm.enums.Funcao).values()}"
+                                                    th:value="${funcao}"
+                                                    th:text="${funcao.descricao}"
+                                            >
+
+                                            </option>
+                                        </select>
                                     </div>
 
 
