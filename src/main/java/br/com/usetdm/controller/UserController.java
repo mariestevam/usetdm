@@ -29,7 +29,7 @@ public class UserController {
 
     @GetMapping
     public String listagem(Model model) {
-        model.addAttribute("usuarios", userRepository.findAll());
+        model.addAttribute("users", userRepository.findAll());
         return "user/listagem";
     }
 
@@ -80,7 +80,7 @@ public class UserController {
 
         attributes.addFlashAttribute("mensagem", "Usuário salvo com sucesso!");
 
-        return "redirect:/usuario";
+        return "redirect:/user";
     }
 
 

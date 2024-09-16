@@ -29,6 +29,7 @@
             <div class="col-md-12">
                 <div class="card">
                     <form  enctype="multipart/form-data" th:action="@{/user/salvar}" th:object="${usuario}" method="post">
+                        <input type="hidden" th:field="*{id}">
                         <div class="card-header">
                             <div class="card-title">Dados do usuario</div>
                         </div>

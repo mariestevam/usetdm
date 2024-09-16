@@ -57,38 +57,28 @@
 											<tr>
 												<th style="width: 7%">ID</th>
 												<th>Nome</th>
-												<th>Telefone</th>
 												<th>Email</th>
 												<th class="text-center" style="width: 7%">Ações</th>
 											</tr>
 											</thead>
-											<tfoot>
-											<tr>
-												<th style="width: 7%">ID</th>
-												<th>Nome</th>
-												<th>Telefone</th>
-												<th>Email</th>
-												<th class="text-center" style="width: 7%">Ações</th>
-											</tr>
-											</tfoot>
+
 											<tbody>
-											<tr th:if="${user.empty}">
+											<tr th:if="${users.empty}">
 												<td colspan="5">Nenhum registro encontrado</td>
 											</tr>
 
 											<tr th:each="user : ${users}">
 												<td style="width: 7%"><span th:text="${user.id}">ID</span></td>
-												<td><span th:text="${user.nome}">Nome</span></td>
-												<td><span th:text="${user.telefone}">Telefone</span></td>
+												<td><span th:text="${user.firstName}">Nome</span></td>
 												<td><span th:text="${user.email}">Email</span></td>
-												<td><span th:text="${user.funcao}">Função</span></td>
+
 
 												<td class="text-center" style="width: 7%">
 													<a th:href="@{/user/form-alterar/{id}(id=${user.id})}">
 														<i class="fa fa-edit" data-toggle="tooltip" title="Alterar"></i>
 													</a>
 													<a th:href="@{/user/excluir/{id}(id=${user.id})}"
-													   th:data-confirm-delete="|Você gostaria de apagar ${user.nome}?|"
+													   th:data-confirm-delete="|Você gostaria de apagar ${user.firstName}?|"
 													   onclick="if (!confirm(this.getAttribute('data-confirm-delete'))) return false"
 
 													   id="alertDelete"
