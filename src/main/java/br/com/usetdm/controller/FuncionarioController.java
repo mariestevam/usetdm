@@ -44,7 +44,9 @@ public class FuncionarioController {
         model.addAttribute("funcionario", new Funcionario());
         return "funcionario/form-inserir";
     }
-    // Método para salvar o jogador
+
+
+    // Método para salvar o funcionário
     @PostMapping("/salvar")
     public String salvar(
             @Valid Funcionario funcionario,
@@ -61,7 +63,10 @@ public class FuncionarioController {
         return "redirect:/funcionario";
     }
 
-    // Formulário de Alteração dos Jogadores
+
+
+
+    // Formulário de Alteração dos Funcionário
     @GetMapping("/form-alterar/{id}")
     public String formAlterar(@PathVariable("id") Long id, Model model){
 
@@ -71,7 +76,7 @@ public class FuncionarioController {
         return "funcionario/form-alterar";
     }
 
-    // Método para alterar o jogador
+    // Método para alterar o funcionário
     @PostMapping("/alterar")
     public String alterar(
             @Valid Funcionario funcionario,
