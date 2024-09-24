@@ -4,16 +4,18 @@ import br.com.usetdm.model.Funcionario;
 import br.com.usetdm.model.Produto;
 import br.com.usetdm.repository.FuncionarioRepository;
 import br.com.usetdm.repository.ProdutoRepository;
+import br.com.usetdm.util.FileUploadUtil;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
+
+import java.io.IOException;
 
 @Controller
 @RequestMapping("/produto")
@@ -54,14 +56,34 @@ public class ProdutoController {
     public String salvar(
             @Valid Produto produto,
             BindingResult result,
-            RedirectAttributes redirectAttributes){
+            RedirectAttributes redirectAttributes,
+            @RequestParam("foto") MultipartFile multipartFile
+    )throws IOException {
+
+        produto.setImagem("semimagem");
 
         // Verifica se há erros de validação
         if(result.hasErrors()){
             return "produto/form-inserir";
         }
 
+        String extensao = StringUtils.getFilenameExtension(multipartFile.getOriginalFilename());
+
+
+
         produtoRepository.save(produto);
+
+        // fileName = user.getId() + "." + extensao;
+        String fileName = produto.getId() + "." + extensao;
+
+        produto.setImagem(fileName);
+
+        produtoRepository.save(produto);
+
+        String uploadPasta = "src/main/resources/static/assets/img/fotos-produtos";
+
+        FileUploadUtil.saveFile(uploadPasta, fileName, multipartFile);
+
         redirectAttributes.addFlashAttribute("mensagem", "Produto salvo com sucesso!");
         return "redirect:/produto";
     }
@@ -89,7 +111,7 @@ public class ProdutoController {
 
         Produto produto = produtoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Funcionario inválido: " + id));
 
-        model.addAttribute("Produto",  produto);
+        model.addAttribute("produto",  produto);
         return "produto/form-alterar";
     }
 

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="pt" class="no-js" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <!-- Site Title -->
+    <title>tdm</title>
+
+    <div th:replace="~{/fragments/heads.html :: heads}"></div>
+
+</head>
+
+<body>
+
+<!-- Start Header Area -->
+<div th:replace="~{/fragments/header.html :: header}"></div>
+<!-- End Header Area -->
+
+<!-- Espaçamento do Formulário -->
+<div class="container" style="margin-top: 100px;"></div>
+
+
+<div class="container">
+    <div class="page-inner">
+        <div class="page-header">
+            <h3 class="fw-bold mb-3">Cadastrar Produto</h3>
+
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="card">
+                    <form th:action="@{/produto/salvar}" th:object="${produto}" method="post" enctype="multipart/form-data">
+                        <input type="hidden" th:field="*{id}">
+                        <div class="card-header">
+                            <div class="card-title">Dados do Produto</div>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-12 col-lg-12">
+
+
+
+                                    <div class="form-group">
+                                        <label for="codigo">Código</label>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="codigo"
+                                                placeholder="Informe o Código do Produto"
+                                                th:field="*{codigo}"
+                                        />
+
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="nome">Nome</label>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="nome"
+                                                placeholder="Informe o Nome do produto"
+                                                th:field="*{nome}"
+                                        />
+
+                                    </div>
+
+
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="valor">Valor</label>
+                                        <input
+                                                type="text"
+                                                class="form-control"
+                                                id="valor"
+                                                placeholder="Informe o Valor"
+                                                th:field="*{valor}"
+                                        />
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        <label
+                                                for="descricao"
+                                        >Descrição</label
+                                        >
+                                        <div class="col-md-12 p-0">
+                                            <input
+                                                    type="text"
+                                                    class="form-control input-full"
+                                                    id="descricao"
+                                                    placeholder="Informe a Descrição"
+                                                    th:field="*{descricao}"
+                                            />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="foto">imagem</label>
+                                        <input
+                                                type="file"
+                                                name="foto"
+                                                accept="image/png, image/jpeg"
+                                                class="form-control"
+                                                id="foto"
+                                        />
+                                    </div>
+
+
+                                    <div class="form-group col-md-3">
+                                        <label for="tipoproduto">tipo de produto</label>
+                                        <select
+                                                class="form-select"
+                                                id="tipoproduto"
+                                                th:field="*{tipoproduto}"
+                                        >
+                                            <option value="">Selecione</option>
+                                            <option
+                                                    th:each="tipoProduto : ${T(br.com.usetdm.enums.Tipoproduto).values()}"
+                                                    th:value="${tipoProduto}"
+                                                    th:text="${tipoProduto.descricao}"
+                                            >
+
+                                            </option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-action">
+                            <button class="btn btn-success" type="submit">Salva</button>
+                            <button class="btn btn-danger">Cancelar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Espaçamento do Formulário -->
+<div class="container" style="margin-top: 100px;"></div>
+
+
+<!-- start footer Area -->
+<div th:replace="~{/fragments/footer.html :: footer}"></div>
+<!-- End footer Area -->
+
+<div th:replace="~{/fragments/scripts.html :: scripts}"></div>
+
+</body>
+
+</html>

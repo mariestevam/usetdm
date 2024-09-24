@@ -28,7 +28,7 @@
         <div class="row">
             <div class="col-md-12">
                 <div class="card">
-                    <form action="#" th:action="@{/produto/salvar}" th:object="${produto}" method="post">
+                    <form th:action="@{/produto/salvar}" th:object="${produto}" method="post" enctype="multipart/form-data">
                         <div class="card-header">
                             <div class="card-title">Dados do Produto</div>
                         </div>
@@ -68,7 +68,7 @@
                                     <div class="form-group col-md-3">
                                         <label for="valor">Valor</label>
                                         <input
-                                                type="value"
+                                                type="text"
                                                 class="form-control"
                                                 id="valor"
                                                 placeholder="Informe o Valor"
@@ -93,13 +93,13 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="imagem">Imagem</label>
+                                        <label for="foto">imagem</label>
                                         <input
-                                                type="text"
+                                                type="file"
+                                                name="foto"
+                                                accept="image/png, image/jpeg"
                                                 class="form-control"
-                                                id="imagem"
-                                                placeholder="Informe a imagem do produto"
-                                                th:field="*{imagem}"
+                                                id="foto"
                                         />
                                     </div>
 

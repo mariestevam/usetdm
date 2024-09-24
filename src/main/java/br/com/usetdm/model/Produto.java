@@ -3,6 +3,7 @@ package br.com.usetdm.model;
 import br.com.usetdm.enums.Tipoproduto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -24,13 +25,13 @@ public class Produto {
     @NotEmpty(message = "O nome deve ser informado")
     private String nome;
 
-    @NotEmpty(message = "O valor deve ser informado")
+    @NotNull(message = "O valor deve ser informado")
     private Double valor;
 
     @NotEmpty(message = "A descrição deve ser informado")
     private String descricao;
 
-    @NotEmpty(message = "Coloque uma imagem do produto")
+    //@NotEmpty(message = "Coloque uma imagem do produto")
     private String imagem;
 
     private Tipoproduto tipoproduto;
