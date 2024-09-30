@@ -81,6 +81,13 @@
 												<td><span th:text="${produto.nome}">Nome</span></td>
 												<td><span th:text="${produto.descricao}">Descrição</span></td>
 												<td><span th:text="${produto.valor}">Valor</span></td>
+												<td>
+													<!--<span th:text="${produto.imagem}">Imagem</span>-->
+													<img class="imagem-modal" th:src="@{/assets/img/fotos-produtos/{image}(image=${produto.imagem})}" alt="Descrição da imagem" style="height: 100px">
+												</td>
+
+												<!--<img class="imagem-modal" th:src="@{/assets/img/fotos-produtos/{image}(image=${produto.image})}" alt="Descrição da imagem" style="height: 100px">-->
+
 												<td class="text-center" style="width: 7%">
 													<a th:href="@{/produto/form-alterar/{id}(id=${produto.id})}"
 													   class="edit" data-toggle="modal">
