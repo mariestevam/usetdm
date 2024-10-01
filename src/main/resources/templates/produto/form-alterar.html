@@ -93,6 +93,22 @@
                                         </div>
                                     </div>
 
+                                    <div class="form-group col-md-3">
+                                        <label
+                                                for="numeração"
+                                        >Numerações</label
+                                        >
+                                        <div class="col-md-12 p-0">
+                                            <input
+                                                    type="text"
+                                                    class="form-control input-full"
+                                                    id="numeração"
+                                                    placeholder="Informe as Numerações"
+                                                    th:field="*{numeracao}"
+                                            />
+                                        </div>
+                                    </div>
+
                                     <div class="form-group">
                                         <label for="foto">imagem</label>
                                         <input
@@ -126,7 +142,7 @@
                             </div>
                         </div>
                         <div class="card-action">
-                            <button class="btn btn-success" type="submit">Salva</button>
+                            <button class="btn btn-success" type="submit">Salvar</button>
                             <button class="btn btn-danger">Cancelar</button>
                         </div>
                     </form>

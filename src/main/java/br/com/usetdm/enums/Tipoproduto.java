@@ -2,7 +2,22 @@ package br.com.usetdm.enums;
 
 public enum Tipoproduto {
     TENIS("Tenis"),
-    SALTO("Salto"),;
+    SALTO("Salto"),
+    BOTA("Bota"),
+    MOCASSIM("Mocassim"),
+    SLIPON("Slip-on"),
+
+    SAPATILHAS("Sapatilhas"),
+
+    OXFORD("Oxford"),
+
+    CHINELO("Chinelo/Rasteirinha"),
+
+    SANDALIA("Sandália"),
+
+    INFANTIL("Infantil"),;
+
+
 
 
     private String descricao;

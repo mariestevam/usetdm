@@ -31,6 +31,9 @@ public class Produto {
     @NotEmpty(message = "A descrição deve ser informado")
     private String descricao;
 
+    @NotEmpty(message = "As numerações devem ser informadas")
+    private String numeracao;
+
     //@NotEmpty(message = "Coloque uma imagem do produto")
     private String imagem;
 
