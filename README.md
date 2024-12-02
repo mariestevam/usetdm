@@ -1,5 +1,5 @@
 ### Olá, eu sou a Mariana Estevam 👋 E esse foi meu Trabalho de conclusão de curso em Analise e desenvolvimento de sistemas no SENAI
-## Pensamos em um problema e a nossa forma de solucionar foi criar uma plataforma de uma gestão de estoque de uma loja de sapato.
+# Pensamos em um problema e a nossa forma de solucionar foi criar uma plataforma de uma gestão de estoque de uma loja de sapato.
 
 ![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=mariestevam&layout=compact)
 
