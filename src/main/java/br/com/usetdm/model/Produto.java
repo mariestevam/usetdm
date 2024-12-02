@@ -1,6 +1,5 @@
 package br.com.usetdm.model;
 
-import br.com.usetdm.enums.Tipoproduto;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotEmpty;
 import jakarta.validation.constraints.NotNull;
@@ -29,6 +28,8 @@ public class Produto {
     private Double valor;
 
     @NotEmpty(message = "A descrição deve ser informado")
+    @Lob
+    @Column( length = 7500)
     private String descricao;
 
     @NotEmpty(message = "As numerações devem ser informadas")
@@ -37,7 +38,7 @@ public class Produto {
     //@NotEmpty(message = "Coloque uma imagem do produto")
     private String imagem;
 
-    private Tipoproduto tipoproduto;
+
 
     //@JsonManagedReference
 }

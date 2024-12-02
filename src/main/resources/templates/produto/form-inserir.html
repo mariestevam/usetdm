@@ -119,24 +119,6 @@
                                         />
                                     </div>
 
-
-                                    <div class="form-group col-md-3">
-                                        <label for="tipoproduto">tipo de produto</label>
-                                        <select
-                                                class="form-select"
-                                                id="tipoproduto"
-                                                th:field="*{tipoproduto}"
-                                        >
-                                            <option value="">Selecione</option>
-                                            <option
-                                                    th:each="tipoProduto : ${T(br.com.usetdm.enums.Tipoproduto).values()}"
-                                                    th:value="${tipoProduto}"
-                                                    th:text="${tipoProduto.descricao}"
-                                            >
-
-                                            </option>
-                                        </select>
-                                    </div>
                                 </div>
                             </div>
                         </div>

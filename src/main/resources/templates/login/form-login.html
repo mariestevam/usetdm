@@ -12,7 +12,7 @@
 <body>
 
 <!-- Start Header Area -->
-<div th:replace="~{/fragments/header.html :: header}"></div>
+<div th:replace="~{/fragments/header-login.html :: header}"></div>
 <!-- End Header Area -->
 
 <!-- Espaçamento do Formulário -->
@@ -55,8 +55,17 @@
                             <button style="background-color: #cf9bcc; color: white; border: none; padding: 10px 120px; font-size: 16px; border-radius: 5px; cursor: pointer;">
                                 Log In
                             </button>
+                            <br>
+                            <br>
+                            <div class="col-md-12 form-group text-center">
+                                <p>
+                                    Não tem cadastro?
+                                    <a href="/user/form-inserir" style="color: #cf9bcc; text-decoration: underline; font-weight: bold;">Cadastre-se</a>
+                                </p>
+                            </div>
 
-                            <a href="#">Esqueceu a senha?</a>
+
+
                         </div>
                     </form>
                 </div>

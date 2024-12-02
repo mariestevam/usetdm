@@ -1,8 +1,6 @@
 package br.com.usetdm.controller;
 
-import br.com.usetdm.model.Funcionario;
 import br.com.usetdm.model.Produto;
-import br.com.usetdm.repository.FuncionarioRepository;
 import br.com.usetdm.repository.ProdutoRepository;
 import br.com.usetdm.util.FileUploadUtil;
 import jakarta.validation.Valid;
@@ -82,13 +80,14 @@ public class ProdutoController {
 
         String uploadPasta = "src/main/resources/static/assets/img/fotos-produtos";
 
+
         FileUploadUtil.saveFile(uploadPasta, fileName, multipartFile);
 
         redirectAttributes.addFlashAttribute("mensagem", "Produto salvo com sucesso!");
         return "redirect:/produto";
     }
 
-    // Método para salvar o jogador
+    // Método para salvar o produto
     @PostMapping("/inserir")
     public String inserir(
             @Valid Produto produto,
@@ -105,7 +104,7 @@ public class ProdutoController {
         return "redirect:/produto";
     }
 
-    // Formulário de Alteração dos Jogadores
+    // Formulário de Alteração dos produto
     @GetMapping("/form-alterar/{id}")
     public String formAlterar(@PathVariable("id") Long id, Model model) {
 
@@ -115,7 +114,7 @@ public class ProdutoController {
         return "produto/form-alterar";
     }
 
-    // Método para alterar o jogador
+    // Método para alterar o produto
     @PostMapping("/alterar")
     public String alterar(
             @Valid Produto produto,
@@ -124,12 +123,28 @@ public class ProdutoController {
 
         // Verifica se há erros de validação
         if (result.hasErrors()) {
-            return "produto/form-alterar";
+            return "form-alterar";
         }
 
 
         produtoRepository.save(produto);
         redirectAttributes.addFlashAttribute("mensagem", "Produto alterado com sucesso!");
         return "redirect:/produto";
+    }
+
+    @GetMapping("/detalhe-produto/{id}")
+    public String detalhes(@PathVariable("id") Long id,Model model){
+
+        Produto produto = produtoRepository.findById(id).orElseThrow(() -> new IllegalArgumentException("Funcionario inválido: " + id));
+
+        // Recupera a numeração do produto e separa por vírgula
+        String numeracao = produto.getNumeracao();
+        String separador = ",";
+        String[] numeracaoArray = numeracao.split(separador);
+
+        model.addAttribute("numeracaoArray", numeracaoArray);
+        model.addAttribute("produto",  produto);
+
+        return "produto/detalhe-produto";
     }
 }

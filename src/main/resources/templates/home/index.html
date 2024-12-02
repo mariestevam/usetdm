@@ -1,116 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt" class="no-js" xmlns:th="http://www.thymeleaf.org">
-
 <head>
-	<!-- Site Title -->
-	<title>tdm</title>
+	<!-- ... (seu head) ... -->
+	<script th:inline="javascript">
+		/*<![CDATA[*/
+		function filtrarProdutos() {
+			const termoBusca = document.getElementById('searchInput').value.toLowerCase();
+			const produtos = document.querySelectorAll('.produto');
 
+			produtos.forEach(produto => {
+				const codigo = produto.querySelector('.codigo').textContent.toLowerCase();
+				const nome = produto.querySelector('.nome').textContent.toLowerCase();
+				const numeracao = produto.querySelector('.numeracao').textContent.toLowerCase();
+
+				if (codigo.includes(termoBusca) || nome.includes(termoBusca) || numeracao.includes(termoBusca)) {
+					produto.style.display = 'block';
+				} else {
+					produto.style.display = 'none';
+				}
+			});
+		}
+		/*]]>*/
+	</script>
 	<div th:replace="~{/fragments/heads.html :: heads}"></div>
 
 </head>
-
 <body>
 
-	<!-- Start Header Area -->
-	<div th:replace="~{/fragments/header.html :: header}"></div>
-	<!-- End Header Area -->
+<!-- Start Header Area -->
+<div th:replace="~{/fragments/header.html :: header}"></div>
+<!-- End Header Area -->
 
+<!-- ... (seu header) ... -->
+<section class="category-area">
+	<div class="container">
+		<div class="row justify-content-center">
+			<div class="col-lg-11 col-md-12">
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div class="form-group">
+					<label for="searchInput">Pesquisar Produto:</label>
+					<input type="text" class="form-control" id="searchInput" onkeyup="filtrarProdutos()">
+				</div>
+				<div class="row">
+					<div class="col-md-4 produto" th:each="produto : ${produtos}">  <!-- Adicione a classe 'produto' -->
+						<div class="card card-post card-round">
+							<img class="card-img-top" th:src="@{/assets/img/fotos-produtos/{id}(id=${produto.imagem})}" alt="Card image cap"/>
+							<div class="card-body">
+								<p class="codigo" th:text="${produto.codigo}"></p>  <!-- Adicione as classes para busca -->
+								<h3 class="nome" th:text="${produto.nome}">Nome</h3>
+								<p class="card-text" th:text="${produto.valor}">valor</p>
+								<p class="numeracao" th:text="${produto.numeracao}">numeração</p>  <!-- Adicione as classes para busca -->
+								<a th:href="@{/produto/detalhe-produto/{id}(id=${produto.id})}" class="btn btn-primary btn-rounded btn-sm" style="background-color: #cf9bcc; border-color: #cf9bcc;">Detalhe</a>
 
-	<!-- Start category Area -->
-	<section class="category-area">
-		<div class="container">
-			<div class="row justify-content-center">
-				<div class="col-lg-8 col-md-12">
-						<div class="col-lg-4 col-md-4">
-							<div class="single-deal">
-								<div class="overlay"></div>
 							</div>
-						</div>
-						<div class="col-lg-8 col-md-8">
-							<div class="overlay"></div>
-
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
-	</section>
- 	<!-- End category Area -->
+	</div>
+</section>
+<!-- ... (resto do seu HTML) ... -->
 
+<!-- End category Area -->
 
-
-	<!-- start product Area -->
-	<section class="owl-carousel active-product-area section_gap">
-
-		<!-- single product slide -->
-		<div class="single-product-slider">
-			<div class="container">
-				<div class="row justify-content-center">
-					<div class="col-lg-6 text-center">
-						<div class="section-title">
-							<h1>Produtos</h1>
-						</div>
-					</div>
-				</div>
-
-				<div class="row">
-
-					<!-- single product -->
-                    <!--Início do Grid-->
-                    <div class="col-md-4" th:each="produto : ${produtos}">
-                        <div class=" card card-post card-round">
-                            <img
-                                    class="card-img-top"
-                                    src="/assets/img/USE.jpg"
-                                    th:src="@{/assets/img/fotos-produtos/{id}(id=${produto.imagem})}"
-                                    alt="Card image cap"
-                            />
-                            <div class="card-body">
-                                <div class="d-flex">
-                                </div>
-                                <div class="separator-solid"></div>
-                                <h3 class="card-title">
-                                    <a href="#"> <span th:text="${produto.nome}">Nome</span> </a>
-                                </h3>
-                                <p class="card-text" th:text="${produto.descricao}">
-                                    descrição
-                                </p>
-                                <p class="card-text" th:text="${produto.valor}">
-                                    valor
-                                </p>
-								<p class="card-text" th:text="${produto.numeracao}">
-									numeração
-								</p>
-
-
-                            </div>
-                        </div>
-                    </div>
-                    <!--Fim do Grid-->
-					<!-- single product -->
-
-				</div>
-			</div> <!-- container -->
-		</div> <!-- slider -->
-
-
-
-
-
-
-
-	</section>
-	<!-- end product Area -->
-
-
-
-
-
-	<!-- start footer Area -->
+<!-- start product Area -->
+<section class="owl-carousel active-product-area section_gap">
+	<!-- single product slide -->
 	<div th:replace="~{/fragments/footer.html :: footer}"></div>
-	<!-- End footer Area -->
+</section>
+<!-- end product Area -->
 
-	<div th:replace="~{/fragments/scripts.html :: scripts}"></div>
+<!-- start footer Area -->
+<div th:replace="~{/fragments/scripts.html :: scripts}"></div>
+
 </body>
-
 </html>
