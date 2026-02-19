@@ -1,19 +1,35 @@
-### Olá, eu sou a Mariana Estevam 👋 E esse foi meu Trabalho de conclusão de curso em Analise e desenvolvimento de sistemas no SENAI
-#### Pensamos em um problema e a nossa forma de solucionar foi criar uma plataforma de uma gestão de estoque de uma loja de sapato.
+# Sistema de Gestão de Estoque – TCC
 
-![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=mariestevam&layout=compact)
+Projeto desenvolvido como Trabalho de Conclusão de Curso no SENAI.
 
-## Tecnologias que eu uso no meu dia
-<div style="display: inline_block"><br/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/HTML-239120?style=for-the-badge&logo=html5&logoColor=white"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/CSS-239120?&style=for-the-badge&logo=css3&logoColor=white"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/JavaScript-323330?style=for-the-badge&logo=javascript&logoColor=F7DF1E"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/MySQL-00000F?style=for-the-badge&logo=mysql&logoColor=white"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/Microsoft_Excel-217346?style=for-the-badge&logo=microsoft-excel&logoColor=white"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/Microsoft_PowerPoint-B7472A?style=for-the-badge&logo=microsoft-powerpoint&logoColor=white"/>
-<img align="center" alt="html5" src="https://img.shields.io/badge/Microsoft_Word-2B579A?style=for-the-badge&logo=microsoft-word&logoColor=white"/>
-</div><br/>
+## 🚀 Sobre
+Sistema web de gestão de estoque para uma loja de calçados, que permite cadastrar, listar, atualizar e remover produtos (CRUD).
 
-Apaixonada por tecnologia e técnica em Analise em Desenvolvimento de Sistemas.
+## 🛠 Tecnologias
+- HTML
+- CSS
+- JavaScript
+- MySQL
+- Git & GitHub
 
+## 📋 Funcionalidades
+- Cadastro de produtos
+- Listagem de itens no estoque
+- Atualização de quantidade e informações
+- Remoção de produtos
+
+## 💻 Como executar
+1. Clone o repositório
+2. Abra o projeto no seu navegador
+3. Configure o banco de dados MySQL
+4. Execute a aplicação localmente
+
+## 📌 Demonstração
+(Se possível adicione prints de tela ou GIFs)
+
+## 📁 Estrutura do projeto
+Descrição breve dos diretórios
+
+## 👩‍💻 Autora
+Mariana Estevam
+Estudante de TI – UNIVESP / Técnica em ADS – SENAI
